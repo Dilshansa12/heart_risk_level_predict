@@ -35,3 +35,6 @@ def getresults():
 	return render_template('patient_results.html',results=resultDict)
 
 app.run(debug=True)
+
+#dilshan
+import numpy as np

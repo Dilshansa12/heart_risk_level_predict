@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Results</title>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .result-card {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .risk-bar {
+            position: relative;
+            height: 30px;
+            width: 100%;
+            background-color: #eee;
+            border-radius: 15px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ff4e50, #f9d423);
+            width: {{results.risk}}%;
+            border-radius: 15px;
+            transition: width 1s ease-in-out;
+        }
+        .risk-text {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-	<h1>Results Sheet</h1>
-	<p>Name: {{results.name}}</p>
-	<p>Risk Level: {{results.risk}}%</p>
+    <div class="result-card">
+        <h1>Results Sheet</h1>
+        <p><strong>Name:</strong> {{results.name}}</p>
+        <p><strong>Risk Level:</strong> {{results.risk}}%</p>
 
+        <div class="risk-bar">
+            <div class="risk-fill"></div>
+            <div class="risk-text">{{results.risk}}%</div>
+        </div>
+    </div>
 </body>
 </html>
